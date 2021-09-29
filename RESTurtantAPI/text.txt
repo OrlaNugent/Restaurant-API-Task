@@ -1,0 +1,39 @@
+Create tables info
+
+async function createTable() {
+  await setupDb();
+  const pret = await Companies.create({
+    name: "Pret",
+    logoURL: "Pret Logo",
+  });
+  pret.createMenu({
+    title: "Breakfast Menu",
+  });
+  pret.createLocation({
+    name: "Finsbury Park",
+    capacity: 6,
+    manager: "Henry",
+  });
+
+  const starbucks = await Companies.create({
+    name: "Starbucks",
+    logoURL: "Starbucks Logo",
+  });
+  starbucks.createMenu({ title: "Fall Menu" });
+  starbucks.createLocation({
+    name: "Archway",
+    capacity: 30,
+    manager: "Claire",
+  });
+
+  const commonground = await Companies.create({
+    name: "Common Ground",
+    logoURL: "Common Ground Logo",
+  });
+  commonground.createMenu({ title: "Brunch Menu" });
+  commonground.createLocation({
+    name: "Stroud Green",
+    capacity: 25,
+    manager: "Ola",
+  });
+}
